@@ -14,9 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let homeViewController = HomeViewController()
+        let rootViewController = UINavigationController(rootViewController: homeViewController)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 172/255, green: 19/255, blue: 24/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        window?.rootViewController = rootViewController
+        
         return true
     }
 

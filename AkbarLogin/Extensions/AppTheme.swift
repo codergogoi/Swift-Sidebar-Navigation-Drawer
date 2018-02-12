@@ -7,13 +7,17 @@
 //
 import UIKit
 
- class AppTheme {
+
+//Custom App Font 
+extension UIFont{
     
-    class func appFont(fSize : Float) -> UIFont{ //regular
+    
+   
+    class func appFont(fSize: Float) -> UIFont{
         
-         return UIFont(name: "RobotoCondensed-Regular", size: CGFloat(fSize))!
-        
+       return UIFont(name: "RobotoCondensed-Regular", size: CGFloat(fSize))!
+
     }
     
-    
 }
+
