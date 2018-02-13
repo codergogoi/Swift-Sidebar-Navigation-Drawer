@@ -16,16 +16,11 @@ struct HeaderData {
  
 }
 
-protocol MenuHeaderDelegate: class {
-    
-    func didTapOnEditProfile()
-    func didTapOnManageBooking()
-    
-}
+
 
 class MenuHeaderCell : BaseCell {
   
-    var delegate: MenuHeaderDelegate?
+    var delegate: MenuOptionsDelegate?
     
     var dataModel: HeaderData? {
         
@@ -118,15 +113,20 @@ class MenuHeaderCell : BaseCell {
         
         addConstraint(NSLayoutConstraint(item: self.lblUserName, attribute: .centerY, relatedBy: .equal, toItem: self.profilePic, attribute: .centerY, multiplier: 1, constant: 0))
         
+        btnEditProfile.addTarget(self, action: #selector(onTapEditProfile), for: .touchUpInside)
+        btnmanageBookings.addTarget(self, action: #selector(onTapManageBookings), for: .touchUpInside)
     }
     
     //perform On Tap actions
     @objc func onTapEditProfile(){
-        self.delegate?.didTapOnEditProfile()
+        let editProfile = AppOptions.EditProfile
+        self.delegate?.didTapOnMenuOption(optionsType: editProfile)
     }
     
     @objc func onTapManageBookings(){
-        self.delegate?.didTapOnManageBooking()
+        let manageBookings = AppOptions.ManageBookings
+        self.delegate?.didTapOnMenuOption(optionsType: manageBookings)
+
     }
     
 }

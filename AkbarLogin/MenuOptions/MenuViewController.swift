@@ -10,13 +10,18 @@ import UIKit
 
 class MenuViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    weak var drawerDelegate : DrawerDelegate?
+    
     let menuCellIdentifier = "menuCell"
     let menuHeaderIdentifier = "menuHeader"
     
     var menuHeaderData = HeaderData(profilePic: nil, userName: "Jayanta Gogoi", isRegisteredUser: true)
+    
+    weak var menuRootViewController: HomeViewController?
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "MenuRootView"
         navigationController?.isNavigationBarHidden = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(MenuHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: menuHeaderIdentifier)
@@ -45,7 +50,7 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: UIScreen.main.bounds.width - 120, height: ((self.view.frame.size.height/3) - 30))
+        return CGSize(width: UIScreen.main.bounds.width - 120, height: ((UIScreen.main.bounds.height/3) - 30))
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,34 +61,48 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuCellIdentifier, for: indexPath) as! MenuCell
         cell.optionsIndex = indexPath.row
-        
+        cell.delegate = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: UIScreen.main.bounds.width - 120, height: self.view.frame.size.height/3)
+        return CGSize(width: UIScreen.main.bounds.width - 120, height: UIScreen.main.bounds.height/3)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+      
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         collectionView?.collectionViewLayout.invalidateLayout()
-        
+
     }
     
 }
 
-extension MenuViewController: MenuHeaderDelegate {
+extension MenuViewController: MenuOptionsDelegate {
     
-    func didTapOnManageBooking() {
+    func didTapOnMenuOption(optionsType: AppOptions) {
         
-        print("Working...")
-    }
-    
-    func didTapOnEditProfile() {
         
-        print("working...")
+        switch optionsType {
+        case .EditProfile, .ManageBookings :
+            self.menuRootViewController?.performMenuOptionsOnTapActions(optionsType: optionsType)
+            self.drawerDelegate?.overrideShowHideControl()
+        case .Settings:
+            let layout = UICollectionViewFlowLayout()
+            let appSettings = SettingsViewController(collectionViewLayout: layout)
+            self.navigationController?.pushViewController(appSettings, animated: true)
+        default:
+            print("Login View")
+            //login view controller
+        }
     }
+  
     
 }
 

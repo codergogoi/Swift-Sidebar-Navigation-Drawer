@@ -12,6 +12,14 @@
 		B876822520317DD300B821C5 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B876822220317DD300B821C5 /* RobotoCondensed-Light.ttf */; };
 		B876822620317DD300B821C5 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B876822320317DD300B821C5 /* RobotoCondensed-Regular.ttf */; };
 		B87682282031942800B821C5 /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87682272031942800B821C5 /* MenuHeaderCell.swift */; };
+		B8A5F5B82032B772004BEAEB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5B72032B772004BEAEB /* SettingsViewController.swift */; };
+		B8A5F5BA2032B930004BEAEB /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5B92032B930004BEAEB /* BaseCell.swift */; };
+		B8A5F5BD2032BDC7004BEAEB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5BC2032BDC7004BEAEB /* EditProfileViewController.swift */; };
+		B8A5F5C02032BDE9004BEAEB /* ManageBookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5BF2032BDE9004BEAEB /* ManageBookingsViewController.swift */; };
+		B8A5F5C32032BE0C004BEAEB /* TravelUtilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5C22032BE0C004BEAEB /* TravelUtilityViewController.swift */; };
+		B8A5F5C62032BE2C004BEAEB /* OffersAndDiscountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5C52032BE2C004BEAEB /* OffersAndDiscountsViewController.swift */; };
+		B8A5F5C92032BE52004BEAEB /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5C82032BE52004BEAEB /* LegalViewController.swift */; };
+		B8A5F5CC2032BE68004BEAEB /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5F5CB2032BE68004BEAEB /* ContactUsViewController.swift */; };
 		B8AE4A08202DC6D30096D5F2 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE4A07202DC6D30096D5F2 /* AppTheme.swift */; };
 		B8AE4A0A202DD3010096D5F2 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE4A09202DD3010096D5F2 /* MenuCell.swift */; };
 		B8D162D0202D68EF00B1F670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D162CF202D68EF00B1F670 /* AppDelegate.swift */; };
@@ -47,6 +55,14 @@
 		B876822220317DD300B821C5 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		B876822320317DD300B821C5 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		B87682272031942800B821C5 /* MenuHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderCell.swift; sourceTree = "<group>"; };
+		B8A5F5B72032B772004BEAEB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B8A5F5B92032B930004BEAEB /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		B8A5F5BC2032BDC7004BEAEB /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B8A5F5BF2032BDE9004BEAEB /* ManageBookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBookingsViewController.swift; sourceTree = "<group>"; };
+		B8A5F5C22032BE0C004BEAEB /* TravelUtilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelUtilityViewController.swift; sourceTree = "<group>"; };
+		B8A5F5C52032BE2C004BEAEB /* OffersAndDiscountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndDiscountsViewController.swift; sourceTree = "<group>"; };
+		B8A5F5C82032BE52004BEAEB /* LegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
+		B8A5F5CB2032BE68004BEAEB /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		B8AE4A07202DC6D30096D5F2 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		B8AE4A09202DD3010096D5F2 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B8D162CC202D68EF00B1F670 /* AkbarLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkbarLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,9 +136,17 @@
 		B876821E20317D6200B821C5 /* MenuOptions */ = {
 			isa = PBXGroup;
 			children = (
+				B8A5F5BB2032BDA4004BEAEB /* EditProfile */,
+				B8A5F5BE2032BDCE004BEAEB /* ManageBookings */,
+				B8A5F5CA2032BE59004BEAEB /* ContactUs */,
+				B8A5F5C12032BDED004BEAEB /* TravelUtility */,
+				B8A5F5C42032BE0F004BEAEB /* OffersAndDiscounts */,
+				B8A5F5B62032B70C004BEAEB /* Settings */,
+				B8A5F5C72032BE40004BEAEB /* Legal */,
 				B8D16302202D809100B1F670 /* MenuViewController.swift */,
 				B8AE4A09202DD3010096D5F2 /* MenuCell.swift */,
 				B87682272031942800B821C5 /* MenuHeaderCell.swift */,
+				B8A5F5B92032B930004BEAEB /* BaseCell.swift */,
 			);
 			path = MenuOptions;
 			sourceTree = "<group>";
@@ -143,6 +167,62 @@
 				B876822320317DD300B821C5 /* RobotoCondensed-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B8A5F5B62032B70C004BEAEB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5B72032B772004BEAEB /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B8A5F5BB2032BDA4004BEAEB /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5BC2032BDC7004BEAEB /* EditProfileViewController.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		B8A5F5BE2032BDCE004BEAEB /* ManageBookings */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5BF2032BDE9004BEAEB /* ManageBookingsViewController.swift */,
+			);
+			path = ManageBookings;
+			sourceTree = "<group>";
+		};
+		B8A5F5C12032BDED004BEAEB /* TravelUtility */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5C22032BE0C004BEAEB /* TravelUtilityViewController.swift */,
+			);
+			path = TravelUtility;
+			sourceTree = "<group>";
+		};
+		B8A5F5C42032BE0F004BEAEB /* OffersAndDiscounts */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5C52032BE2C004BEAEB /* OffersAndDiscountsViewController.swift */,
+			);
+			path = OffersAndDiscounts;
+			sourceTree = "<group>";
+		};
+		B8A5F5C72032BE40004BEAEB /* Legal */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5C82032BE52004BEAEB /* LegalViewController.swift */,
+			);
+			path = Legal;
+			sourceTree = "<group>";
+		};
+		B8A5F5CA2032BE59004BEAEB /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5F5CB2032BE68004BEAEB /* ContactUsViewController.swift */,
+			);
+			path = ContactUs;
 			sourceTree = "<group>";
 		};
 		B8D162C3202D68EF00B1F670 = {
@@ -333,14 +413,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A5F5BD2032BDC7004BEAEB /* EditProfileViewController.swift in Sources */,
 				B876821B2031703300B821C5 /* DrawerView.swift in Sources */,
 				B8D162D2202D68EF00B1F670 /* HomeViewController.swift in Sources */,
 				B8D162D8202D68EF00B1F670 /* AkbarLogin.xcdatamodeld in Sources */,
 				B8AE4A0A202DD3010096D5F2 /* MenuCell.swift in Sources */,
+				B8A5F5C02032BDE9004BEAEB /* ManageBookingsViewController.swift in Sources */,
 				B8D162D0202D68EF00B1F670 /* AppDelegate.swift in Sources */,
+				B8A5F5C92032BE52004BEAEB /* LegalViewController.swift in Sources */,
 				B87682282031942800B821C5 /* MenuHeaderCell.swift in Sources */,
 				B8AE4A08202DC6D30096D5F2 /* AppTheme.swift in Sources */,
 				B8D16303202D809100B1F670 /* MenuViewController.swift in Sources */,
+				B8A5F5CC2032BE68004BEAEB /* ContactUsViewController.swift in Sources */,
+				B8A5F5C62032BE2C004BEAEB /* OffersAndDiscountsViewController.swift in Sources */,
+				B8A5F5BA2032B930004BEAEB /* BaseCell.swift in Sources */,
+				B8A5F5C32032BE0C004BEAEB /* TravelUtilityViewController.swift in Sources */,
+				B8A5F5B82032B772004BEAEB /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
         menuButton.tintColor = UIColor.white
         navigationItem.leftBarButtonItems = [menuButton]
         self.view.backgroundColor = UIColor.white
- 
     }
  
     override func didReceiveMemoryWarning() {
@@ -27,11 +26,27 @@ class HomeViewController: UIViewController {
     
     //MARK: - onTap Action
     @objc func onTapMenuOptions(_ sender: UIButton){
-        self.showDrawer()
+    
+         self.showDrawer(viewController: self)
+    } 
+    
+    func performMenuOptionsOnTapActions(optionsType: AppOptions){
+        
+        switch optionsType {
+            
+        case .EditProfile:
+            let editProfile = EditProfileViewController()
+            self.navigationController?.pushViewController(editProfile, animated: true)
+        case .ManageBookings:
+            let manageBookings = ManageBookingsViewController()
+            self.navigationController?.pushViewController(manageBookings, animated: true)
+        default:
+            //Default controller -> check for Login
+            print("do nothing")
+        }
+        
         
     }
-  
-   
 
 }
 

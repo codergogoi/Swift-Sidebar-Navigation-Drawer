@@ -8,25 +8,33 @@
 
 import UIKit
 
+protocol DrawerDelegate: class{
+    
+    func overrideShowHideControl()
+}
+
+
 class DrawerView : UIView {
     
-    var menuRootView: UIView!
-    var controller: UIViewController!
+    weak var menuRootView: UIView!
+    weak var controller: UIViewController!
     var damping: CGFloat = 0.7
     var velocity: CGFloat = 0.9
     var minSwipeValue : CGFloat = 0
     var maxSwipeValue : CGFloat = 0
+    weak var HomeViewController: HomeViewController?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
  
     }
     
-    init(controller: UIViewController, frame: CGRect){
+    init(controller: UIViewController, rootView: HomeViewController? , frame: CGRect){
         super.init(frame: frame)
         self.minSwipeValue = 0 - UIScreen.main.bounds.size.width
         self.maxSwipeValue =  UIScreen.main.bounds.width - 120
         self.controller = controller
+        self.HomeViewController = rootView!
         self.setupViews()
     }
     
@@ -48,17 +56,21 @@ class DrawerView : UIView {
         
         let layout = UICollectionViewFlowLayout()
         let menuVc = MenuViewController(collectionViewLayout: layout)
+        menuVc.drawerDelegate = self
+        if let controller = self.HomeViewController{
+            menuVc.menuRootViewController = controller
+        }
         let navController = UINavigationController(rootViewController: menuVc)
-        
+ 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissSideMenu))
         tapView.addGestureRecognizer(tapGesture)
         self.addSubview(tapView)
-        
         
         if let rootView = navController.view{
             self.menuRootView = rootView
             self.addSubview(self.menuRootView)
             self.controller.addChildViewController(navController)
+            //navController.didMove(toParentViewController: self.controller)
             
             self.menuRootView.layoutIfNeeded()
             self.menuRootView.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width - 120, height: UIScreen.main.bounds.size.height)
@@ -70,8 +82,6 @@ class DrawerView : UIView {
                 
             }, completion: nil)
         }
-        
-        
         
     }
     
@@ -98,9 +108,9 @@ class DrawerView : UIView {
             DispatchQueue.main.async {
                 
                 if velocity.x > 0 { // right
-                    self.meniWillShow(true)
+                    self.menuWillShow(true)
                 }else{ // left
-                    self.meniWillShow(false)
+                    self.menuWillShow(false)
                 }
             }
             
@@ -111,7 +121,7 @@ class DrawerView : UIView {
         
     }
     
-    func meniWillShow(_ isShow: Bool){
+    func menuWillShow(_ isShow: Bool){
         
         if isShow{
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: .curveLinear, animations: {
@@ -122,33 +132,41 @@ class DrawerView : UIView {
                 self.menuRootView.frame.origin = CGPoint(x: self.minSwipeValue, y: self.menuRootView.frame.origin.y)
                 self.alpha = 0
             }, completion: { (isDone) in
-                self.removeFromSuperview()
+              self.removeFromSuperview()
             })
         }
-    }
-    
-    @objc func dismissSideMenu(_ sender: UITapGestureRecognizer){
-      
-        self.meniWillShow(false)
+        
         
     }
     
+    @objc func dismissSideMenu(_ sender: UITapGestureRecognizer){
+         self.menuWillShow(false)
+     }
+    
+    
+    
+}
+
+extension DrawerView : DrawerDelegate{
+    
+    func overrideShowHideControl() {
+        self.menuWillShow(false)
+    }
     
 }
 
 extension UIViewController {
  
-    func showDrawer(){
+    func showDrawer(viewController: HomeViewController?){
     
         if let window = UIApplication.shared.keyWindow{
-            let sidebar = DrawerView(controller: window.rootViewController!, frame: UIScreen.main.bounds)
+            let sidebar = DrawerView(controller: window.rootViewController!, rootView: viewController, frame: UIScreen.main.bounds)
             if !window.subviews.contains(sidebar){
                 window.addSubview(sidebar)
-            }
+              }
         }
  
      }
-    
-    
+     
 }
 
